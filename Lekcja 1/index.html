@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>  
+    <div id="container">
+        <div id="page">
+            <h2>Najpopularniejsze język programowania</h2>
+            <ul>
+                <li><a href="#" class="link" id="pierwszy">JavaScript</a></li>
+                <li><a href="#" class="link">Java</a></li>
+                <li><a href="#" class="link">Python</a></li>
+                <li><a href="#" class="link">PHP</a></li>
+                <li><a href="#" class="link">C#</a></li>
+            </ul>
+            <hr>
+            <ol></ol>
+            <hr>
+            <p></p>
+            <p>Input: <input type="text"
+                value="Agata Fecek" id="test3"></p>
+            <button id="btn3">Set Value</button>
+        </div>
+    </div>
+     <script src="./jquery-3.7.1.min.js"></script>
+     <script>
+        $(function(){
+            $('#page').css('background-color','#00FFFF');
+            $('h2').css('letter-spacing','5px');
+            $('.link').css({
+                'color':'black',
+                'text-decoration':'none'
+                });
+            $('[href="#"]').attr('href','http://zs6sobieski.pl');
+            $('a').odd().css({
+                'color':'white',
+                'text-decoration':'none',
+                'background-color':'black'
+            })
+            const $lista_ul=$('ul').html();
+            //pobrana zawartosc listy i przypisanie do zmiennej
+            consola.log($lista_ul);
+            const $lista_li=$('li').html();
+            console.log($lista_li);
+        });
+     </script>
+</body>  
+</html>
