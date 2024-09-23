@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css.css">
 </head>
 <body>  
     <div id="container">
@@ -21,8 +20,7 @@
             <ol></ol>
             <hr>
             <p></p>
-            <p>Input: <input type="text"
-                value="Agata Fecek" id="test3"></p>
+            <p>Input: <input type="text" id="test3"></p>
             <button id="btn3">Set Value</button>
         </div>
     </div>
@@ -43,10 +41,36 @@
             })
             const $lista_ul=$('ul').html();
             //pobrana zawartosc listy i przypisanie do zmiennej
-            consola.log($lista_ul);
+            console.log($lista_ul);
             const $lista_li=$('li').html();
             console.log($lista_li);
         });
+        $(function()
+    {
+        //pobieramy zawartość listy ul
+        let $lista_ul = $('ul').html();
+        //dodjemy zawartość zmiennej lista_ul do środka listy ol
+        $('ol').append($lista_ul);
+        $lista_ul = $('ul').text();
+        $('p').append($lista_ul);
+    })
+    $(function()
+{
+    //przypisuje do zmiennej trzeci element listy
+    let $zmiana = $('li').eq(2).html();
+    //usuwa element 
+    $('li').eq(2).remove();
+    $('ul').prepend("<li>"+$zmiana+"</li>");
+})
+    $(function()
+{
+    $("h2").before('<img src="jezyki.jpg">');
+    $('img').after('<hr><br>');
+    $("#btn3").click(function()
+{
+    $("#test3").val("Agata Wilczek");
+})
+})
      </script>
 </body>  
 </html>

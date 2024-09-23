@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="page">
+            Wybierz mnie, wpisz coś i wciśnij Enter, a następnie opuść mnie:
+            <input type="text"><br>
+            <span>Właśnie mnie aktywowałeś</span>
+            <span>Pole zostało opuszczone</span>
+            <span>Nastąpiła zmiana</span>
+        </div>
+    </div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+    $(function()
+    {
+        //kod gdy aktywowano input
+        $('input').on('focus', function()
+        {
+            //kod który dla pierwszego spana wyświetla go oraz powoli ukrywa przed 4.5 sekundy
+            $('span').eq(0).css('display', 'inline').fadeOut(4500);
+        })
+        //kod gdy opuszczono input
+        $('input').on('blur', function()
+        {
+            //kod który dla drugiego spana wyświetla go oraz powoli ukrywa przed 4.5 sekundy
+            $('span').eq(1).css('display', 'inline').fadeOut(4500);
+        })
+        //kod gdy zmieniono coś w input
+        $('input').on('change', function()
+        {
+            //kod który dla trzeciego spana wyświetla go oraz powoli ukrywa przed 4.5 sekundy
+            $('span').eq(2).css('display', 'inline').fadeOut(4500);
+        })
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="page">
+            Wpisz dowolny tekst: <input type="text"><br>
+            <p>Liczba wszystkich naciśnięć klawiszy: <span>0</span></p>
+        </div>
+    </div>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(function()
+    {
+    $("input").on("keydown", function()
+    {
+        $("input").css({
+            'background-color':"black",
+            "color":"white"
+        });
+    });
+    $("input").on("keyup", function()
+    {
+        $("input").css({
+            'background-color':"white",
+            "color":"black"
+        });
+    });
+    let i = 0;
+    $("input").keypress(function()
+{
+    $("span").text(++i);
+})
+    })
+    </script>
+</body>
+</html>
