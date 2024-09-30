@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="a">Dowolny tekst</h1>
+    <h2 class="a">Dowolny tekst</h2>
+    <p class="a">Dowolny tekst</p>
+    <span class="a">Dowolny tekst</span><br>
+    <button class="a">Dowolny tekst</button>
+<br>
+    <p id="wynik"></p>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+    $(".a").click(function(element)
+    {
+        console.log("test");
+        $("#wynik").text("Kliknięty element to: " + element.target.nodeName);
+    })
+    </script>
+</body>
+</html>
