@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .prostokat
+        {
+            border: 1px solid black;
+            width: 200px;
+            height: 150px;
+            background-color: blue;
+            margin: 0 20px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="page">
+            <button id="wysun">slideDown</button>
+            <button id="wysun2">slideUp</button>
+            <button id="wysun3">fadeTo</button>
+            <br><br>
+            <div id="pierwszy" class="prostokat"></div>
+            <div id="drugi" class="prostokat"></div>
+            <div id="trzeci" class="prostokat"></div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $("#wysun").on("click", function()
+        {
+            $("#pierwszy").toggle().slideDown(1000);
+        });
+        $("#wysun2").on("click", function()
+        {
+            $("#drugi").toggle().slideUp(2000);
+        });
+        $("#wysun3").on("click", function()
+        {
+            $("#trzeci").toggle().slideDown("slow");
+        });
+    </script>
+</body>
+</html>
