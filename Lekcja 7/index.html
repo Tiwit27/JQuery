@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <h4>Pole formularza input type text:</h4>
+        <input type="text" value="Przykładowy tekst">
+        <p></p>
+        <hr>
+        <h4>Pole jednokrotnego wyboru:</h4>
+        Języki programowania wykorzystujesz do tworzenia:
+        <select id="tylkoJeden">
+            <option>Stron internetowych</option>
+            <option>Aplikacji desktopowych</option>
+            <option>Aplikacji mobilnych</option>
+            <option>Inne</option>
+        </select>
+        <p></p>
+        <hr>
+        <div id="ulubionyJezyk"></div>
+        <div id="log"></div>
+        <hr>
+        <h4>Pole wielokrotnego wyboru:</h4>
+        Pytanie pozostaje to samo, lecz można wybrać kilka opcji:
+        <select id="wiele" multiple>
+            <option>Stron internetowych</option>
+            <option>Aplikacji desktopowych</option>
+            <option>Aplikacji mobilnych</option>
+            <option>Inne</option>
+        </select>
+        <p></p>
+        <hr>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //Pole tekstowe
+            $("input").on("keyup", function () {
+                const wartosc = $(this).val();
+                $("p").eq(0).text(wartosc);
+            }).keyup();
+            //Pole listy jednokrotnego wyboru
+            function wyswietlPojedynczyWybor()
+            {
+                const pojedynczyWybor = $("#tylkoJeden").val();
+                $("p").eq(1).text("Twój wybór to: " + pojedynczyWybor);
+            }
+            $("select").change(wyswietlPojedynczyWybor);
+            wyswietlPojedynczyWybor();
+            //Pole listy wielokrotnego wyboru
+            function wyswietlWielokrotnyWybor()
+            {
+                const wielokronyWybor = $("#wiele").val();
+                $("p").eq(2).text("Twój wybór to: " + wielokronyWybor.join(","));
+            }
+            $("select").change(wyswietlWielokrotnyWybor);
+            wyswietlWielokrotnyWybor();
+        })
+    </script>
+</body>
+
+</html>
