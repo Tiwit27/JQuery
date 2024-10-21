@@ -46,21 +46,56 @@
                 $("p").eq(0).text(wartosc);
             }).keyup();
             //Pole listy jednokrotnego wyboru
-            function wyswietlPojedynczyWybor()
-            {
+            function wyswietlPojedynczyWybor() {
                 const pojedynczyWybor = $("#tylkoJeden").val();
                 $("p").eq(1).text("Twój wybór to: " + pojedynczyWybor);
             }
             $("select").change(wyswietlPojedynczyWybor);
             wyswietlPojedynczyWybor();
             //Pole listy wielokrotnego wyboru
-            function wyswietlWielokrotnyWybor()
-            {
+            function wyswietlWielokrotnyWybor() {
                 const wielokronyWybor = $("#wiele").val();
                 $("p").eq(2).text("Twój wybór to: " + wielokronyWybor.join(","));
             }
             $("select").change(wyswietlWielokrotnyWybor);
             wyswietlWielokrotnyWybor();
+            
+            function wyborJezyka(){
+                const jakiJezyk = $("#tylkoJeden").val();
+                if(jakiJezyk=="Stron internetowych"){
+                    //Pola radio
+                    $("#log").text("");
+                    $("#ulubionyJezyk").html('PHP <input type="radio" name="www" value="PHP"> Java Script <input type="radio" name="www" value="JavaScript">');
+                    $("input").on("click", function(){
+                        $("#log").html("Wybrano: " + $("input:checked").val());
+                    });
+                }
+                else if(jakiJezyk=="Aplikacji desktopowych"){
+                    //Pole checkbox
+                    $("#log").text("");
+                    $("#ulubionyJezyk").html('C++ <input type="checkbox" name="desktop" value="C++"> Java <input type="checkbox" name="desktop" value="Java"> <button>Sprawdź zaznaczenie</Button>');
+                    //Komunikat w alert
+                    $("button").on("click", function(){
+                        const favorite = [];
+                        $.each($('input[name="desktop"]:checked'), function(){
+                            favorite.push($(this).val())
+                        });
+                        const ilosc = function(){
+                            const n = $("input:checked").length;
+                            const x = ((n===1) ? "Moim ulubionym językiem jest: ":"Moimi ulubionymi językami są: ");
+                            alert(x + favorite.join(","));
+                        };
+                        ilosc();
+                    });
+                }
+                else
+                {
+                    $("#log").text("");
+                    $("#ulubionyJezyk").html("<div>Obrazek</div>");
+                }
+            }
+            $("select").change(wyborJezyka);
+            wyborJezyka();
         })
     </script>
 </body>
