@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+<<<<<<< HEAD
         .prostokat
         {
             border: 1px solid black;
@@ -13,10 +14,32 @@
             background-color: blue;
             margin: 0 20px;
             float: left;
+=======
+        #pierwszy
+        {
+            background-color: blue;
+            height: 60px;
+            width: 60px;
+            border-radius: 100px;
+            left: 50px;
+            top: 200px;
+            position: absolute;
+        }
+        #drugi
+        {
+            background-color: red;
+            height: 60px;
+            width: 60px;
+            border-radius: 100px;
+            left: 50px;
+            top: 300px;
+            position: absolute;
+>>>>>>> 5420997f303a8117d1ef8c7a80d1eef8068f68dc
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <div id="container">
         <div id="page">
             <button id="wysun">slideDown</button>
@@ -44,5 +67,52 @@
             $("#trzeci").toggle().slideDown("slow");
         });
     </script>
+=======
+    <button id="start1">&raquo; Start niebieski</button>
+    <button id="start2">&raquo; Start czerwony</button>
+    <button id="start3">&raquo; Start obie</button>
+    <button id="stop">&raquo; Stop</button>
+    <button id="reset">&raquo; Od nowa</button>
+
+    <div id="pierwszy" class="kulka"></div>
+    <div id="drugi" class="kulka"></div>
+    <div id="log"></div>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(function()
+        {
+            $("#start1").on("click", function()
+            {
+                const div = $("#pierwszy");
+                div.animate({"left":"+=300"},"slow");
+                div.animate({"top":"+=50"},"slow");
+                div.animate({"left":"+=700"},600);
+            })
+            $("#start2").on("click", function()
+            {
+                const div = $("#drugi");
+                div.animate({"left":"+=300"},"slow");
+                div.animate({"top":"+=50"},"slow");
+                div.animate({"left":"+=700"},800);
+            })
+            $("#start3").on("click", function()
+            {
+                $("#start1, #start2").click();
+            })
+            $("#reset").on("click", function()
+            {
+                $("log").text("");
+                $("#pierwszy, #drugi").css({left:"",top:""});
+            })
+            $("#stop").on("click", function()
+            {
+                const kulka = $(".kulka");
+                kulka.clearQueue();
+                kulka.stop();
+            })
+        })
+    </script>
+    
+>>>>>>> 5420997f303a8117d1ef8c7a80d1eef8068f68dc
 </body>
 </html>
